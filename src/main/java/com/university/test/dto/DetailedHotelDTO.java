@@ -21,7 +21,7 @@ public class DetailedHotelDTO {
 
     private ContactsDTO contacts;
 
-    private ArrivalTimeDTO arrivalTimeDTO;
+    private ArrivalTimeDTO arrivalTime;
 
     private List<String> amenities;
 

@@ -14,5 +14,7 @@ public interface HotelService {
 
     SimpleHotelDTO postHotel(PostHotelDTO dto);
 
-    void postHotelAmenities(List<String> amenities);
+    void postHotelAmenities(List<String> amenities, Long hotelId);
+
+    List<SimpleHotelDTO> searchHotels(String name, String brand, String city, String county, String amenities);
 }

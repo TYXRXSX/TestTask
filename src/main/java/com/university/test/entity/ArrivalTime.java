@@ -1,9 +1,6 @@
 package com.university.test.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalTime;
@@ -13,9 +10,10 @@ import java.time.LocalTime;
 public class ArrivalTime {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "arrival_time_generator")
+    @SequenceGenerator(name = "arrival_time_generator", sequenceName = "arrival_time_id_seq", allocationSize = 1)
     private Long id;
-    private LocalTime checkIn;
-    private LocalTime checkOut;
+    private String checkIn;
+    private String checkOut;
 
 }

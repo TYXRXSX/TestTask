@@ -12,10 +12,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/property-view/")
+@RequiredArgsConstructor
 public class HotelController {
 
-    @Autowired
-    private HotelService hotelService;
+
+    private final HotelService hotelService;
 
     @GetMapping("/hotels")
     public List<SimpleHotelDTO> getAllHotels() {
@@ -34,7 +35,7 @@ public class HotelController {
 
     @PostMapping("/hotels/{id}/amenities")
     public void postHotelAmenities(@RequestBody List<String> amenities, @PathVariable Long id) {
-        hotelService.postHotelAmenities(amenities);
+        hotelService.postHotelAmenities(amenities, id);
     }
 
     @GetMapping("/search")
@@ -45,6 +46,6 @@ public class HotelController {
             @RequestParam(required = false) String county,
             @RequestParam(required = false) String amenities
     ) {
-        return null;
+        return hotelService.searchHotels(name, brand, city, county, amenities);
     }
 }

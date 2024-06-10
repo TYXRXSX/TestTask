@@ -11,8 +11,4 @@ public class ArrivalTimeDTO {
     private String checkIn;
     private String checkOut;
 
-    public ArrivalTimeDTO(String checkIn, String checkOut) {
-        this.checkIn = checkIn;
-        this.checkOut = checkOut;
-    }
 }

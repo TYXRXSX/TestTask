@@ -3,6 +3,7 @@ package com.university.test.mapper;
 import com.university.test.dto.AddressDTO;
 import com.university.test.entity.Address;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 @Mapper(componentModel = "spring")

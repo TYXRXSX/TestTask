@@ -10,17 +10,22 @@ import java.util.List;
 public class Hotel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "hotel_generator")
+    @SequenceGenerator(name = "hotel_generator", sequenceName = "hotel_id_seq", allocationSize = 1)
     private Long id;
     private String name;
+    private String brand;
     private String description;
     private String phone;
 
-    @OneToOne(cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Address address;
 
-    @OneToOne(cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Contacts contacts;
+
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    private ArrivalTime arrivalTime;
 
     @ElementCollection
     @CollectionTable(name = "hotel_amenities", joinColumns = @JoinColumn(name = "hotel_id"))

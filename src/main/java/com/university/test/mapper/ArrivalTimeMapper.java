@@ -1,6 +1,8 @@
 package com.university.test.mapper;
 
+import com.university.test.dto.ArrivalTimeDTO;
 import com.university.test.dto.ContactsDTO;
+import com.university.test.entity.ArrivalTime;
 import com.university.test.entity.Contacts;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
@@ -8,10 +10,9 @@ import org.mapstruct.factory.Mappers;
 @Mapper(componentModel = "spring")
 public interface ArrivalTimeMapper {
 
-    ContactsMapper INSTANCE = Mappers.getMapper(ContactsMapper.class);
+    ArrivalTimeMapper INSTANCE = Mappers.getMapper(ArrivalTimeMapper.class);
 
-    ContactsDTO contactsDTOtoContacts(Contacts contacts);
+    ArrivalTime arrivalTimeDTOToArrivalTime(ArrivalTimeDTO arrivalTimeDTO);
 
-    Contacts contactstoContactsDTO(ContactsDTO contactsDTO);
-
+    ArrivalTimeDTO arrivalTimeToArrivalTimeDTO(ArrivalTime arrivalTime);
 }

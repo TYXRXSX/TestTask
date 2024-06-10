@@ -1,9 +1,6 @@
 package com.university.test.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
@@ -12,7 +9,8 @@ public class Contacts {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "contacts_generator")
+    @SequenceGenerator(name = "contacts_generator", sequenceName = "contacts_id_seq", allocationSize = 1)
     private Long id;
     private String phone;
     private String email;
